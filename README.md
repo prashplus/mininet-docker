@@ -20,6 +20,6 @@ docker run --name mininet-test -it mininet /bin/bash
 
 ## Authors
 
-* **Prashant Piprotar** - - [PrashPlus](https://github.com/prashplus)
+* **Prashant Piprotar** - - [Prash+](https://github.com/prashplus)
 and visit my blog for more Tech Stuff
 ### http://www.prashplus.com
