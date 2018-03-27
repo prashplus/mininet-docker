@@ -3,8 +3,6 @@ FROM ubuntu:16.04
 USER root
 WORKDIR /root
 
-ADD ./sources.list /etc/apt/
-
 RUN apt-get update -y \
     && apt-get upgrade -y   \
     && apt-get dist-upgrade -y \
