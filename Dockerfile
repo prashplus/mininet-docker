@@ -27,6 +27,4 @@ RUN git clone git://github.com/mininet/mininet \
     && cd .. \
     && mininet/util/install.sh
 
-RUN rm -rf /var/lib/apt/lists/*
-
 ENV TERM xterm-color
