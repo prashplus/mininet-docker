@@ -16,6 +16,10 @@ docker build -t mininet
 ```
 docker run --name mininet-test -it mininet /bin/bash
 ```
+### Or just Pull the docker image
+```
+docker pull prashplus/mininet-docker
+```
 
 
 ## Authors
