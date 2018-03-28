@@ -20,3 +20,4 @@ docker run --name mininet-test -it mininet /bin/bash
 ```
 docker pull prashplus/containernet
 ```
+Inspired by: https://github.com/containernet/containernet
