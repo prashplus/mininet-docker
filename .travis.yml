@@ -1,0 +1,13 @@
+sudo: required
+
+language: ruby
+
+services:
+  - docker
+
+before_install:
+  - docker build -t prashplus/test /home/travis/build/prashplus/mininet-docker
+  - docker run -d --name test --privileged -t prashplus/test /bin/bash
+
+script:
+  - docker ps -a

@@ -28,3 +28,10 @@ RUN git clone git://github.com/mininet/mininet \
     && mininet/util/install.sh
 
 ENV TERM xterm-color
+
+#Getting the Repo for Entrypoint script
+WORKDIR /
+RUN git clone https://github.com/prashplus/mininet-docker
+
+# ENTRYPOINT script
+ENTRYPOINT ["mininet-docker/script/entrypoint.sh"]

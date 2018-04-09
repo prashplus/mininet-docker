@@ -1,4 +1,5 @@
-# Mininet-Docker
+# Mininet-Docker [<img alt="Build Status" src="https://travis-ci.org/prashplus/mininet-docker.svg?branch=master" height="20">][travis-url]
+
 This repo contains mininet dockerfile and the demo of the Docker automated builds.
 
 ## How to use
@@ -27,3 +28,6 @@ docker pull prashplus/mininet-docker
 * **Prashant Piprotar** - - [Prash+](https://github.com/prashplus)
 and visit my blog for more Tech Stuff
 ### http://www.prashplus.com
+
+
+[travis-url]: https://travis-ci.org/prashplus/mininet-docker
