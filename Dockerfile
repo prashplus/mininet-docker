@@ -32,6 +32,7 @@ ENV TERM xterm-color
 #Getting the Repo for Entrypoint script
 WORKDIR /
 RUN git clone https://github.com/prashplus/mininet-docker
+RUN ["chmod", "+x", "/mininet-docker/script/entrypoint.sh"]
 
 # ENTRYPOINT script
 ENTRYPOINT ["mininet-docker/script/entrypoint.sh"]
