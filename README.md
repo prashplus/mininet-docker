@@ -28,6 +28,10 @@ docker pull prashplus/mininet-docker
 * **Prashant Piprotar** - - [Prash+](https://github.com/prashplus)
 and visit my blog for more Tech Stuff
 ### http://www.prashplus.com
+<<<<<<< HEAD
 
 
 [travis-url]: https://travis-ci.org/prashplus/mininet-docker
+=======
+HI
+>>>>>>> f4a0cb0d2c3bb0d0d95e39524e87c9c423611e74
