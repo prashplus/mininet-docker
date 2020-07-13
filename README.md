@@ -1,5 +1,8 @@
 # Mininet-Docker [<img alt="Build Status" src="https://travis-ci.org/prashplus/mininet-docker.svg?branch=master" height="20">][travis-url]
 
+[![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/pretty-risque.svg)](https://forthebadge.com)
+
 This repo contains mininet dockerfile and the demo of the Docker automated builds.
 
 ## How to use
