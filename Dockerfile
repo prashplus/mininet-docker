@@ -1,7 +1,10 @@
-FROM ubuntu:16.04
+FROM ubuntu:24.04
 
 USER root
 WORKDIR /root
+
+# Prevent interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y \
     && apt-get upgrade -y   \
@@ -12,27 +15,41 @@ RUN apt-get update -y \
         curl \
         iproute2 \
         iputils-ping \
-        openvswitch-testcontroller \
+        openvswitch-switch \
         net-tools \
         tcpdump \
         vim \
         x11-xserver-utils \
         xterm   \
         git     \
-        sudo 
+        sudo \
+        python3 \
+        python3-pip \
+        iperf3 \
+        wget \
+        mininet \
+        openvswitch-testcontroller
 
-RUN git clone git://github.com/mininet/mininet \
-    && cd mininet \
-    && git checkout -b 2.2.2 \
-    && cd .. \
-    && mininet/util/install.sh
+# Install additional Python dependencies for Mininet
+RUN pip3 install --break-system-packages mininet
 
-ENV TERM xterm-color
+# Create symlink for controller
+RUN ln -s /usr/bin/ovs-testcontroller /usr/bin/controller
 
-#Getting the Repo for Entrypoint script
-WORKDIR /
-RUN git clone https://github.com/prashplus/mininet-docker
-RUN ["chmod", "+x", "/mininet-docker/script/entrypoint.sh"]
+ENV TERM=xterm-color
+
+# Copy demo scripts and topologies
+COPY demos/ /root/demos/
+COPY script/entrypoint.sh /root/entrypoint.sh
+COPY script/test_setup.sh /root/test_setup.sh
+
+# Make scripts executable
+RUN chmod +x /root/entrypoint.sh
+RUN chmod +x /root/test_setup.sh
+RUN chmod +x /root/demos/*.py
+
+# Expose common ports for web servers and other services
+EXPOSE 8000 8080 6633 6653
 
 # ENTRYPOINT script
-ENTRYPOINT ["mininet-docker/script/entrypoint.sh"]
+ENTRYPOINT ["/root/entrypoint.sh"]

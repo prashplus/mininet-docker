@@ -1,0 +1,25 @@
+services:
+  mininet:
+    build: .
+    image: mininet-demo
+    container_name: mininet-demo
+    privileged: true
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./demos:/root/demos
+      - ./script:/root/script
+    ports:
+      - "8000:8000"
+      - "8080:8080"
+      - "6633:6633"
+      - "6653:6653"
+    networks:
+      - mininet-network
+    entrypoint: ["/bin/bash", "-c"]
+    command: ["service openvswitch-switch start || echo 'Warning: Could not start OVS'; echo 'Welcome to Mininet Docker Demo'; echo 'Available demos in /root/demos/'; echo 'Run: python3 /root/demos/<script_name>'; tail -f /dev/null"]
+    restart: unless-stopped
+
+networks:
+  mininet-network:
+    driver: bridge
